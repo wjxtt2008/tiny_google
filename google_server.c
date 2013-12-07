@@ -1,4 +1,4 @@
-// gcc -o dispatcher dispatcher.c 
+// gcc -o google_server google_server.c 
 
 
 #include <sys/types.h>
