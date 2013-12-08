@@ -13,24 +13,22 @@ while (<FP>)
 
 foreach (@word_array)
 {
-	$word{$_}=1 and next unless $word{$_} ;
- 	$word{$_}++ ;
+	unless($word{$_}) {
+		$word{$_} = 1;
+		next;
+	}
+	$word{$_}++;
 }
 
-while (my ($k,$v)=each %word)
-{
-	print "$k ==> $v\n";
-}
 
 open(my $outfile, '>', $ARGV[1]);
 
-
 foreach my $key (sort { lc($a) cmp lc($b) } keys %word) {
-    print $key . "  ";
-    print $word{$key} . "\n";
+	# print $key . "  ";
+	# print $word{$key} . "\n";
 
-    print $outfile $key . "  ";
-    print $outfile $word{$key} . "\n";
+	print $outfile $key . "  ";
+	print $outfile $word{$key} . "\n";
 
 }
 
