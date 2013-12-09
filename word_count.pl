@@ -6,18 +6,18 @@ my (%word,@word_array);
 
 while (<FP>)
 {
-	s/,|\.//g;
+	s/[[:punct:]]//g;
 	@temp_array=split(/\s+/);
 	push @word_array,@temp_array;
 }
 
 foreach (@word_array)
 {
-	unless($word{$_}) {
-		$word{$_} = 1;
+	unless($word{lc($_)}) {
+		$word{lc($_)} = 1;
 		next;
 	}
-	$word{$_}++;
+	$word{lc($_)}++;
 }
 
 
