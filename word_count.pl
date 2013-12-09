@@ -27,7 +27,7 @@ foreach my $key (sort { lc($a) cmp lc($b) } keys %word) {
 	# print $key . "  ";
 	# print $word{$key} . "\n";
 
-	print $outfile $key . "  ";
+	print $outfile $key . ":";
 	print $outfile $word{$key} . "\n";
 
 }
